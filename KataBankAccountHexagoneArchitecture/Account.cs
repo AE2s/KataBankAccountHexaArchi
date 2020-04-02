@@ -1,5 +1,4 @@
-﻿using System;
-using BankAccount.Domain.Model;
+﻿using BankAccount.Domain.Model;
 
 namespace BankAccount.Domain
 {
@@ -25,6 +24,11 @@ namespace BankAccount.Domain
         public void Withdrawal(Money money)
         {
             _accountPort.Withdrawal(money);
+        }
+
+        public string OperationsHistory()
+        {
+            return _accountPort.OperationsHistory();
         }
     }
 }

@@ -47,5 +47,10 @@ namespace BankAccount.Domain.Model
         {
             return money._value <= 0 ? this : new Money(_value - money._value);
         }
+
+        public override string ToString()
+        {
+            return $"{_value}";
+        }
     }
 }

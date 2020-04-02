@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BankAccount.Domain;
+﻿using BankAccount.Domain;
 using BankAccount.Domain.Model;
 
 namespace BankAccount.Application
@@ -28,6 +25,11 @@ namespace BankAccount.Application
         public void Withdrawal(Money money)
         {
             _account.Withdrawal(money);
+        }
+
+        public string OperationsHistory()
+        {
+            return _account.OperationsHistory();
         }
     }
 }
