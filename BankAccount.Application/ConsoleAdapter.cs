@@ -24,5 +24,10 @@ namespace BankAccount.Application
         {
             _account.Deposit(money);
         }
+
+        public void Withdrawal(Money money)
+        {
+            _account.Withdrawal(money);
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace BankAccount.Domain
     {
         Money Balance();
         void Deposit(Money money);
+        void Withdrawal(Money money);
     }
 }

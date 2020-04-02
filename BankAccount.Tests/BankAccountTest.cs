@@ -38,5 +38,34 @@ namespace BankAccount.Tests
 
             Check.That(consoleAdapter.Balance()).IsEqualTo(expectedBalance);
         }
+
+        [Fact]
+        public void Given_an_account_with_negatif_deposits__should_not_add_to_the_balance()
+        {
+            var depositValue = Money.ValueOf(-10);
+            var expectedBalance = Money.ValueOf(0);
+            var accountAdapter = new AccountAdapter();
+            IAccount account = new Account(accountAdapter);
+            var consoleAdapter = new ConsoleAdapter(account);
+
+            consoleAdapter.Deposit(depositValue);
+
+            Check.That(consoleAdapter.Balance()).IsEqualTo(expectedBalance);
+        }
+
+        [Fact]
+        public void Given_an_account_with_ten_deposit_and_ten_withdrawal_should_return_zero()
+        {
+            var depositValue = Money.ValueOf(10);
+            var expectedBalance = Money.ValueOf(0);
+            var accountAdapter = new AccountAdapter();
+            IAccount account = new Account(accountAdapter);
+            var consoleAdapter = new ConsoleAdapter(account);
+
+            consoleAdapter.Deposit(depositValue);
+            consoleAdapter.Withdrawal(depositValue);
+
+            Check.That(consoleAdapter.Balance()).IsEqualTo(expectedBalance);
+        }
     }
 }

@@ -21,5 +21,10 @@ namespace BankAccount.Domain
         {
             _accountPort.Deposit(money);
         }
+
+        public void Withdrawal(Money money)
+        {
+            _accountPort.Withdrawal(money);
+        }
     }
 }

@@ -23,5 +23,10 @@ namespace BankAccount.Infrastructure
         {
             _balance = _balance.Add(money);
         }
+
+        public void Withdrawal(Money money)
+        {
+            _balance = _balance.Substract(money);
+        }
     }
 }
