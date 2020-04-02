@@ -11,6 +11,15 @@ namespace BankAccount.Tests
 {
     public class BankAccountTest
     {
+        private readonly IDate date;
+        private readonly DateTime dateToUse;
+        public BankAccountTest()
+        {
+            dateToUse=new DateTime(2020,04,02);
+            date = Substitute.For<IDate>();
+            date.CurrentDate().Returns(dateToUse);
+        }
+        
         [Fact]
         public void Given_an_account_with_deposit_ten_should_return_ten_in_the_balance()
         {
@@ -29,7 +38,7 @@ namespace BankAccount.Tests
         {
             var depositValue = Money.ValueOf(10);
             var expectedBalance = Money.ValueOf(20);
-            var accountAdapter = new AccountAdapter();
+            var accountAdapter = new AccountAdapter(date);
             IAccount account = new Account(accountAdapter);
             var consoleAdapter=new ConsoleAdapter(account);
 
@@ -44,7 +53,7 @@ namespace BankAccount.Tests
         {
             var depositValue = Money.ValueOf(-10);
             var expectedBalance = Money.ValueOf(0);
-            var accountAdapter = new AccountAdapter();
+            var accountAdapter = new AccountAdapter(date);
             IAccount account = new Account(accountAdapter);
             var consoleAdapter = new ConsoleAdapter(account);
 
@@ -58,7 +67,7 @@ namespace BankAccount.Tests
         {
             var depositValue = Money.ValueOf(10);
             var expectedBalance = Money.ValueOf(0);
-            var accountAdapter = new AccountAdapter();
+            var accountAdapter = new AccountAdapter(date);
             IAccount account = new Account(accountAdapter);
             var consoleAdapter = new ConsoleAdapter(account);
 
@@ -72,9 +81,8 @@ namespace BankAccount.Tests
         public void Given_an_account_with_one_deposit_should_return_historic_containing_one_operation()
         {
             var ten = Money.ValueOf(10);
-            var currentDate = DateTime.Now;
-            var expectedHistory = $"operation | date | amount | balance\nDeposit | {currentDate} | {ten} | {ten}";
-            var accountAdapter = new AccountAdapter();
+            var expectedHistory = $"operation | date | amount | balance\nDeposit | {dateToUse} | {ten} | {ten}";
+            var accountAdapter = new AccountAdapter(date);
             IAccount account = new Account(accountAdapter);
             var consoleAdapter = new ConsoleAdapter(account);
 
@@ -88,9 +96,8 @@ namespace BankAccount.Tests
         {
             var ten = Money.ValueOf(10);
             var twenty = Money.ValueOf(20);
-            var currentDate = DateTime.Now;
-            var expectedHistory = $"operation | date | amount | balance\nDeposit | {currentDate} | {twenty} | {twenty}\nWithdraw | {currentDate} | {ten} | {ten}";
-            var accountAdapter = new AccountAdapter();
+            var expectedHistory = $"operation | date | amount | balance\nDeposit | {dateToUse} | {twenty} | {twenty}\nWithdraw | {dateToUse} | {ten} | {ten}";
+            var accountAdapter = new AccountAdapter(date);
             IAccount account = new Account(accountAdapter);
             var consoleAdapter = new ConsoleAdapter(account);
 

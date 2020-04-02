@@ -7,12 +7,14 @@ namespace BankAccount.Infrastructure
 {
     public class AccountAdapter : IAccountPort
     {
+        private readonly IDate _date;
         private Money _balance;
         private const string HEADER_HISTORIC_OPERATIONS = "operation | date | amount | balance";
         private List<Operation> operations;
 
-        public AccountAdapter()
+        public AccountAdapter(IDate date)
         {
+            _date = date;
             _balance = Money.ValueOf(0);
             operations=new List<Operation>();
         }
@@ -24,13 +26,13 @@ namespace BankAccount.Infrastructure
         public void Deposit(Money money)
         {
             _balance = _balance.Add(money);
-            operations.Add(new Operation(OperationType.Deposit, DateTime.Now, money, _balance));
+            operations.Add(new Operation(OperationType.Deposit, _date.CurrentDate(), money, _balance));
         }
 
         public void Withdrawal(Money money)
         {
             _balance = _balance.Substract(money);
-            operations.Add(new Operation(OperationType.Withdraw, DateTime.Now, money, _balance));
+            operations.Add(new Operation(OperationType.Withdraw, _date.CurrentDate(), money, _balance));
         }
 
         public string OperationsHistory()
