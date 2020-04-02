@@ -15,6 +15,8 @@ namespace BankAccount.Domain.Model
 
         private Money(int value)
         {
+            if (value < 0)
+                throw new ArgumentException("money can't not be under zero");
             _value = value;
         }
 
@@ -30,7 +32,7 @@ namespace BankAccount.Domain.Model
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Money) obj);
+            return Equals((Money)obj);
         }
 
         public override int GetHashCode()
@@ -40,12 +42,12 @@ namespace BankAccount.Domain.Model
 
         public Money Add(Money money)
         {
-            return money._value <= 0 ? this : new Money(_value + money._value);
+            return new Money(_value + money._value);
         }
 
         public Money Substract(Money money)
         {
-            return money._value <= 0 ? this : new Money(_value - money._value);
+            return new Money(_value - money._value);
         }
 
         public override string ToString()

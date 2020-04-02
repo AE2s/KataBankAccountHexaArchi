@@ -49,17 +49,10 @@ namespace BankAccount.Tests
         }
 
         [Fact]
+        
         public void Given_an_account_with_negative_deposits__should_not_add_to_the_balance()
         {
-            var depositValue = Money.ValueOf(-10);
-            var expectedBalance = Money.ValueOf(0);
-            var accountAdapter = new AccountAdapter(date);
-            IAccount account = new Account(accountAdapter);
-            var consoleAdapter = new ConsoleAdapter(account);
-
-            consoleAdapter.Deposit(depositValue);
-
-            Check.That(consoleAdapter.Balance()).IsEqualTo(expectedBalance);
+            Assert.Throws<ArgumentException>(() => Money.ValueOf(-10));
         }
 
         [Fact]
