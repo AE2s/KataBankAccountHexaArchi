@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataBankAccountHexagoneArchitecture", "KataBankAccountHexagoneArchitecture\KataBankAccountHexagoneArchitecture.csproj", "{C06AC0AC-BA0E-4BC8-AAF8-BDE3700E1197}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Domain", "KataBankAccountHexagoneArchitecture\BankAccount.Domain.csproj", "{C06AC0AC-BA0E-4BC8-AAF8-BDE3700E1197}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Tests", "BankAccount.Tests\BankAccount.Tests.csproj", "{C453FC38-CBEF-4C84-A57B-B6DAAC70064F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Infrastructure", "BankAccount.Infrastructure\BankAccount.Infrastructure.csproj", "{1CD608B8-28BB-4D8E-8747-B0002212F758}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount.Application", "BankAccount.Application\BankAccount.Application.csproj", "{71DC8036-C16A-4A5E-A428-73CA09ED2879}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DE23882-BCC7-4179-B2DA-0946506F617C}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +26,18 @@ Global
 		{C06AC0AC-BA0E-4BC8-AAF8-BDE3700E1197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C06AC0AC-BA0E-4BC8-AAF8-BDE3700E1197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C06AC0AC-BA0E-4BC8-AAF8-BDE3700E1197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C453FC38-CBEF-4C84-A57B-B6DAAC70064F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C453FC38-CBEF-4C84-A57B-B6DAAC70064F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C453FC38-CBEF-4C84-A57B-B6DAAC70064F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C453FC38-CBEF-4C84-A57B-B6DAAC70064F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD608B8-28BB-4D8E-8747-B0002212F758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD608B8-28BB-4D8E-8747-B0002212F758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD608B8-28BB-4D8E-8747-B0002212F758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD608B8-28BB-4D8E-8747-B0002212F758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71DC8036-C16A-4A5E-A428-73CA09ED2879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71DC8036-C16A-4A5E-A428-73CA09ED2879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71DC8036-C16A-4A5E-A428-73CA09ED2879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71DC8036-C16A-4A5E-A428-73CA09ED2879}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

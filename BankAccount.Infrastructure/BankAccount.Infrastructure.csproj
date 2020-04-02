@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KataBankAccountHexagoneArchitecture\BankAccount.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
