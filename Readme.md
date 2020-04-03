@@ -1,6 +1,6 @@
 KataBankAccount
-Bank account kata Think of your personal bank account experience. When in doubt, go for the simplest solution
 
+Implementation of Kata Bank Account with hexagonal architecture
 Requirements
 
 Deposit and Withdrawal Account statement (date, amount, balance) Statement printing The expected result is a service API,
